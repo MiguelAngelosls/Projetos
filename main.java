@@ -5,59 +5,53 @@ public class main {
 
         Scanner scan = new Scanner(System.in);
 
-        int opc;
-        double saldo = 0;
+       System.out.println("1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12");
+       
+       System.out.print("Digite o numero do mes: ");
+       int mes = scan.nextInt();
 
-        do {
+       switch (mes) {
+        case 1: 
+            System.out.println("Janeiro: possui 31 dias");
+            break;
+        case 2: 
+            System.out.println("Fevereiro: possui 28 dias");
+            break;
+        case 3:
+            System.out.println("Março: possui 31 dias"); 
+            break;
+        case 4: 
+            System.out.println("Abril: possui 30 dias");
+            break;
+        case 5: 
+            System.out.println("Maio: possui 31 dias");
+            break;
+        case 6: 
+            System.out.println("Junho: possui 30 dias");
+            break;
+        case 7:
+            System.out.println("Julho: possui 31 dias");
+            break; 
+        case 8: 
+            System.out.println("Agosto: possui 31 dias");
+        break;
+        case 9:
+            System.out.println("Setembro: possui 30 dias");
+            break;
+        case 10:
+            System.out.println("Outubro: possui 31 dias");
+            break;
+        case 11:
+            System.out.println("Novembro: possui 30 dias");
+            break;
+        case 12:
+            System.out.println("Dezembro: possui 31 dias");
+            break;
+       
+        default:
+            System.out.println("Opção invalida, escolha outro mes");
+            break;
+       }
 
-            System.out.println("1 - Consultar saldo");
-            System.out.println("2 - Depositar");
-            System.out.println("3 - Sacar");
-            System.out.println("4 - Sair");
-
-            System.out.print("Digite qual opção deseja proseguir: ");
-            opc = scan.nextInt();
-
-            switch (opc) {
-                case 1:
-                    if (saldo == 0) {
-                        System.out.println("Seu saldo é de " + saldo);
-
-                    } else if (saldo > 0) {
-                        System.out.println("Seu saldo é de " + saldo);
-                    }
-                    break;
-
-                case 2:
-                    System.out.print("Digite a quantia que deseja depositar: ");
-                    saldo += scan.nextDouble();
-                    System.out.println("Quantia depositada com sucesso! saldo atualizado.");
-                    break;
-
-                case 3:
-
-                    System.out.print("Digite quanto voce quer retirar: ");
-                    double qtd = scan.nextDouble();
-
-                    if (saldo == 0) {
-                        System.out.println("Nao existe quantia para retirar!");
-
-                    } else if (saldo < qtd) {
-                        System.out.println("saldo insuficiente!");
-
-                    } else if (saldo >= qtd) {
-                        System.out.println("Saldo sacado com sucesso!");
-                        saldo -= qtd;
-                    }
-                    break;
-
-                case 4:
-                    System.out.println("Saindo do banco");
-                    break;
-
-                default:
-                    System.out.println("Opcao invalida! Tente novamente");
-            }
-        } while (opc != 4);
     }
 }
