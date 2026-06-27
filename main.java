@@ -5,53 +5,72 @@ public class main {
 
         Scanner scan = new Scanner(System.in);
 
-       System.out.println("1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12");
-       
-       System.out.print("Digite o numero do mes: ");
-       int mes = scan.nextInt();
+        System.out.print("Digite a quantidade de pessoas que voce quer convidar: ");
+        int nLista = scan.nextInt();
 
-       switch (mes) {
-        case 1: 
-            System.out.println("Janeiro: possui 31 dias");
-            break;
-        case 2: 
-            System.out.println("Fevereiro: possui 28 dias");
-            break;
-        case 3:
-            System.out.println("Março: possui 31 dias"); 
-            break;
-        case 4: 
-            System.out.println("Abril: possui 30 dias");
-            break;
-        case 5: 
-            System.out.println("Maio: possui 31 dias");
-            break;
-        case 6: 
-            System.out.println("Junho: possui 30 dias");
-            break;
-        case 7:
-            System.out.println("Julho: possui 31 dias");
-            break; 
-        case 8: 
-            System.out.println("Agosto: possui 31 dias");
-        break;
-        case 9:
-            System.out.println("Setembro: possui 30 dias");
-            break;
-        case 10:
-            System.out.println("Outubro: possui 31 dias");
-            break;
-        case 11:
-            System.out.println("Novembro: possui 30 dias");
-            break;
-        case 12:
-            System.out.println("Dezembro: possui 31 dias");
-            break;
-       
-        default:
-            System.out.println("Opção invalida, escolha outro mes");
-            break;
-       }
+        String[] nomes = new String[nLista];
+
+        int opc;
+
+        do {
+            mostrarMenu();
+            System.out.print("Digite a opção que deseja prossguir: ");
+            opc = scan.nextInt();
+
+            switch (opc) {
+                case 1:
+                    addNome(nomes, scan);
+                    break;
+
+                case 2:
+                    verLista(nomes);
+                    break;
+
+                case 3:
+                    System.out.println("Saindo do sistema");
+                    break;
+
+                default:
+                    System.out.println("Opção invalida");
+                    break;
+            }
+        } while (opc != 3);
+    }
+
+    public static void mostrarMenu() {
+
+        System.out.println("Escolha uma opção abaixo: ");
+        System.out.println("1: adicioar convidaddo!");
+        System.out.println("2: Ver lista de convidados");
+        System.out.println("3: Sair");
+
+    }
+
+    public static void addNome(String[] nomes, Scanner scan) {
+
+        for (int i = 0; i < nomes.length; i++) {
+            if (nomes[i] == null) {
+                System.out.println("Digite o nome do convidado: ");
+                scan.nextLine();
+                nomes[i] = scan.nextLine();
+                System.out.println("Nome adicionado com sucesso!");
+                return;
+            }
+        }
+        System.out.println("A lista esta chei!");
+    }
+
+    public static void verLista(String[] nomes) {
+
+        System.out.println("Lista de convidados");
+
+        for (int i = 0; i < nomes.length; i++) {
+            if (nomes[i] == null) {
+                System.out.println("Posição " + i + " vazia");
+            } else {
+                System.out.println("Posição " + i + ": " + nomes[i]);
+            }
+        }
 
     }
 }
