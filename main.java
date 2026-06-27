@@ -22,6 +22,7 @@ public class main {
                 case 1:
                     if (saldo == 0) {
                         System.out.println("Seu saldo é de " + saldo);
+
                     } else if (saldo > 0) {
                         System.out.println("Seu saldo é de " + saldo);
                     }
@@ -40,22 +41,23 @@ public class main {
 
                     if (saldo == 0) {
                         System.out.println("Nao existe quantia para retirar!");
+
                     } else if (saldo < qtd) {
                         System.out.println("saldo insuficiente!");
+
                     } else if (saldo >= qtd) {
                         System.out.println("Saldo sacado com sucesso!");
                         saldo -= qtd;
                     }
                     break;
+
                 case 4:
                     System.out.println("Saindo do banco");
                     break;
 
                 default:
                     System.out.println("Opcao invalida! Tente novamente");
-                    
             }
         } while (opc != 4);
-
     }
 }
